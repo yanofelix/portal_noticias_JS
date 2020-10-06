@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Formulário de cadastro de Notícia</title>
+		</head>
+	<body>
+
+		<h1>Adicionar notícia</h1> </br>
+
+		<% if(valide){ %>
+            <ul>
+                <% for(var i = 0; i < valide.length; i++){ %>
+                    
+                    <li>
+                        <%= valide[i].msg %>
+                    </li>
+                <% } %>
+            </ul>
+        <% } %>
+
+		<form action="/noticias/salvar" method="POST">
+			<label>Título</label>
+			<input type="text" value="<%=noticia.titulo%>" id="titulo" name="titulo" placeholder="Titulo da notícia"/>
+			</br>
+
+			<label>Resumo</label>
+			<input type="text" id="resumo" value="<%=noticia.resumo%>" name="resumo" placeholder="Resumo da notícia"/>
+			</br>
+
+			<label>Autor</label>
+			<input type="text" id="autor" value="<%=noticia.autor%>" name="autor" placeholder="Nome do autor"/>
+			</br>
+
+			<label>Data dos fatos</label>
+			<input type="date" id="data_noticia" value="<%=noticia.data_noticia%>" name="data_noticia" placeholder="Data da noticia"/>
+			</br>
+
+			<textarea id="noticia" name="noticia" rows="5" cols="35" value="<%=noticia.noticia%>"></textarea>
+			</br>
+			<button type="submit" class="btn btn-primary">Enviar</button>
+			<button type="button" class="btn btn-danger">Cancelar</button>
+		</form>
+
+	</body>
+
+	<footer>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</footer>
+</html>
